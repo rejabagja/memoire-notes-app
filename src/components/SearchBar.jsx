@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import { TSearchBar } from "./types";
 
 function SearchBar({ keyword, keywordChange }) {
   return (
@@ -13,9 +13,6 @@ function SearchBar({ keyword, keywordChange }) {
   );
 }
 
-SearchBar.propTypes = {
-  keyword: PropTypes.string.isRequired,
-  keywordChange: PropTypes.func.isRequired,
-};
+SearchBar.propTypes = TSearchBar;
 
 export default SearchBar;

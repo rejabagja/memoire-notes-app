@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
 import NoteItem from "./NoteItem";
-import { noteItemPropTypes } from "../types";
+import { TNotesList } from "./types";
 
 function NotesList({ notes }) {
   return (
@@ -26,8 +25,6 @@ function NotesList({ notes }) {
   );
 }
 
-NotesList.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.shape(noteItemPropTypes)).isRequired,
-};
+NotesList.propTypes = TNotesList;
 
 export default NotesList;

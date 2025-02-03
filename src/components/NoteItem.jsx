@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import { showFormattedDate } from "../utils";
 import { Link } from "react-router-dom";
 import parser from "html-react-parser";
-import { noteItemPropTypes } from "../types";
+import { TNoteItem } from "./types";
 
 function NoteItem({ id, title, createdAt, body }) {
   return (
@@ -16,6 +15,6 @@ function NoteItem({ id, title, createdAt, body }) {
   );
 }
 
-NoteItem.propTypes = noteItemPropTypes;
+NoteItem.propTypes = TNoteItem;
 
 export default NoteItem;

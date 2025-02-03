@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import { TAppLayout } from "../types";
 
 function AppLayout({ children }) {
   return (
@@ -21,8 +21,6 @@ function AppLayout({ children }) {
   );
 }
 
-AppLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+AppLayout.propTypes = TAppLayout;
 
 export default AppLayout;

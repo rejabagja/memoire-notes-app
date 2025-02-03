@@ -1,31 +1,31 @@
 import { useRoutes } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import ArchivesPage from "../pages/ArchivesPage";
-import CreatePage from "../pages/CreatePage";
-import DetailPage from "../pages/DetailPage";
-import NotFoundPage from "../pages/404NotFoundPage";
+import PageHome from "../pages/home";
+import PageArchives from "../pages/archives";
+import PageDetail from "../pages/detail";
+import PageCreate from "../pages/create";
+import PageNotFound from "../pages/_not-found";
 
 function AppRoutes() {
   const routes = useRoutes([
     {
       path: "/",
-      element: <HomePage />,
+      element: <PageHome />,
     },
     {
       path: "/archives",
-      element: <ArchivesPage />,
+      element: <PageArchives />,
     },
     {
       path: "/notes/:noteId",
-      element: <DetailPage />,
+      element: <PageDetail />,
     },
     {
       path: "/notes/new",
-      element: <CreatePage />,
+      element: <PageCreate />,
     },
     {
       path: "*",
-      element: <NotFoundPage />,
+      element: <PageNotFound />,
     },
   ]);
   return routes;

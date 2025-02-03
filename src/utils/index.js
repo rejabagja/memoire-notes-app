@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const showFormattedDate = (date) => {
   const options = {
     weekday: 'long',
@@ -8,4 +10,14 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString('id-ID', options);
 };
 
-export { showFormattedDate };
+function useInput(defaultValue = "") {
+  const [value, setValue] = useState(defaultValue);
+
+  const onValueChangeHandler = (event) => {
+    setValue(event.target.value);
+  };
+
+  return [value, onValueChangeHandler];
+}
+
+export { showFormattedDate, useInput };
