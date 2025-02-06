@@ -105,6 +105,7 @@ function editNote({ id, title, body }) {
 }
 
 function searchNotes(keyword, notes) {
+  if (notes === null) return notes;
   const result = notes.filter((note) => note.title.toLowerCase().includes(keyword.toLowerCase()));
   return result;
 }

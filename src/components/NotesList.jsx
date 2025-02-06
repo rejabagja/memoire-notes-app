@@ -2,6 +2,7 @@ import NoteItem from "./NoteItem";
 import { TNotesList } from "./types";
 
 function NotesList({ notes }) {
+  if (!notes) return <p>fetching notes ...</p>;
   return (
     <>
       {notes.length ? (
@@ -18,7 +19,7 @@ function NotesList({ notes }) {
         </section>
       ) : (
         <section className="notes-list-empty">
-          <p>No notes found</p>
+          <p>No notes</p>
         </section>
       )}
     </>

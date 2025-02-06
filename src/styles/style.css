@@ -84,6 +84,11 @@ main {
   max-width: 1200px;
 }
 
+.homepage .username {
+  text-align: right;
+  margin-bottom: 16px;
+}
+
 .notes-list {
   margin-top: 32px;
   display: grid;

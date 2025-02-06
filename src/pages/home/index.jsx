@@ -1,32 +1,21 @@
-import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-import { getActiveNotes, searchNotes } from "../../utils/local-data";
+import { Link } from "react-router-dom";
 import AppLayout from "../../components/layouts/app";
 import SearchBar from "../../components/SearchBar";
 import NotesList from "../../components/NotesList";
 import { BiPlus } from "react-icons/bi";
+import { searchNotes } from "../../utils/local-data";
+import { useHome } from "./hooks";
 
-function PageHome() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [notes, setNotes] = useState([]);
-  const [keyword, setKeyword] = useState(
-    () => searchParams.get("keyword") || ""
-  );
-
-  function changeSearchKeyword(keyword) {
-    setKeyword(keyword);
-    setSearchParams({ keyword });
-  }
-
-  useEffect(() => {
-    setNotes(getActiveNotes());
-  }, []);
-
+function PageHome({ authedUserName }) {
+  const { keyword, notes, changeSearchKeyword } = useHome();
   const filteredNotes = searchNotes(keyword, notes);
 
   return (
     <AppLayout>
       <section className="homepage">
+        <p className="username">
+          <i>Welcome back</i>, <b>{authedUserName}</b>
+        </p>
         <h2>Active Notes</h2>
         <SearchBar keyword={keyword} keywordChange={changeSearchKeyword} />
         <NotesList notes={filteredNotes} />

@@ -19,7 +19,7 @@ function AppRoutes({ authedUser }) {
 
   return (
     <Router>
-      <Route path="/" element={<PageHome />} />
+      <Route path="/" element={<PageHome authedUserName={authedUser.name} />} />
       <Route path="/archives" element={<PageArchives />} />
       <Route path="/notes/:noteId" element={<PageDetail />} />
       <Route path="/notes/new" element={<PageCreate />} />

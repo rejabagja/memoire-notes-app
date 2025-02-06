@@ -9,7 +9,9 @@ export const TNoteItem = {
 }
 
 export const TNotesList = {
-  notes: PropTypes.arrayOf(PropTypes.shape(TNoteItem)).isRequired,
+  notes: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape(TNoteItem)), PropTypes.oneOf([null], PropTypes.array)
+  ]),
 };
 
 export const TSearchBar = {
