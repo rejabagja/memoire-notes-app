@@ -1,25 +1,10 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { getArchivedNotes, searchNotes } from "../../utils/local-data";
+import { searchNotes } from "../../utils/notes";
 import SearchBar from "../../components/SearchBar";
 import NotesList from "../../components/NotesList";
+import { useArchives } from "./hooks";
 
 function PageArchives() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [notes, setNotes] = useState([]);
-  const [keyword, setKeyword] = useState(
-    () => searchParams.get("keyword") || ""
-  );
-
-  function changeSearchKeyword(keyword) {
-    setKeyword(keyword);
-    setSearchParams({ keyword });
-  }
-
-  useEffect(() => {
-    setNotes(getArchivedNotes());
-  }, []);
-
+  const { notes, keyword, changeSearchKeyword } = useArchives();
   const filteredNotes = searchNotes(keyword, notes);
 
   return (
