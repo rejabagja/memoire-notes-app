@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { BASE_URL } from "../../constants";
 
 function getAccessToken() {
@@ -194,6 +195,24 @@ function validateLoginForm({ email, password }) {
   return null;
 };
 
+function showDeleteNoteConfirm() {
+   return Swal.fire({
+     title: "Are you sure want to delete this note?",
+     showDenyButton: true,
+     confirmButtonText: "Yes",
+     denyButtonText: "No",
+     icon: "warning",
+   });
+};
+
+function searchNotes(keyword, notes) {
+  if (notes === null) return notes;
+  const result = notes.filter((note) =>
+    note.title.toLowerCase().includes(keyword.toLowerCase())
+  );
+  return result;
+}
+
 export {
   getAccessToken,
   putAccessToken,
@@ -209,4 +228,6 @@ export {
   deleteNote,
   validateRegisterForm,
   validateLoginForm,
+  showDeleteNoteConfirm,
+  searchNotes
 };

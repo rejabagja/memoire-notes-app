@@ -1,55 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import {
-  archiveNote,
-  deleteNote,
-  getNote,
-  unarchiveNote,
-} from "../../utils/local-data";
 import { showFormattedDate } from "../../utils";
 import parser from "html-react-parser";
 import { BiArchiveIn, BiArchiveOut, BiTrashAlt } from "react-icons/bi";
-import Swal from "sweetalert2";
+import { useDetails } from "./hooks";
 
 function PageDetail() {
-  const navigate = useNavigate();
-  const { noteId } = useParams();
-  const [note, setNote] = useState(null);
+  const { note, loading, handleArchive, handleDelete } = useDetails();
 
-  useEffect(() => {
-    const note = getNote(noteId);
-    setNote(note);
-  }, [noteId]);
-
-  const handleArchive = () => {
-    if (!note.archived) {
-      archiveNote(noteId);
-    } else {
-      unarchiveNote(noteId);
-    }
-
-    navigate("/");
-  };
-
-  const handleDelete = async () => {
-    const { isConfirmed } = await showConfirm();
-    if (!isConfirmed) {
-      return;
-    }
-
-    deleteNote(noteId);
-    navigate("/");
-  };
-
-  const showConfirm = () => {
-    return Swal.fire({
-      title: "Are you sure want to delete this note?",
-      showDenyButton: true,
-      confirmButtonText: "Yes",
-      denyButtonText: "No",
-      icon: "warning",
-    });
-  };
+  if (loading) return <p>fetching data ...</p>;
 
   return (
     <>

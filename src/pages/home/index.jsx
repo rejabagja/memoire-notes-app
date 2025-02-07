@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../../components/SearchBar";
 import NotesList from "../../components/NotesList";
 import { BiPlus } from "react-icons/bi";
-import { searchNotes } from "../../utils/local-data";
+import { searchNotes } from "../../utils/notes";
 import { useHome } from "./hooks";
 
 function PageHome({ authedUserName }) {
