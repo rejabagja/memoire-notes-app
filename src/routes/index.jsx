@@ -6,6 +6,7 @@ import PageCreate from "../pages/create";
 import PageNotFound from "../pages/_not-found";
 import PageLogin from "../pages/auth/login";
 import PageRegister from "../pages/auth/register";
+import AppLayout from "../components/layouts/app";
 
 function AppRoutes({ authedUser }) {
   if (!authedUser) {
@@ -19,10 +20,15 @@ function AppRoutes({ authedUser }) {
 
   return (
     <Router>
-      <Route path="/" element={<PageHome authedUserName={authedUser.name} />} />
-      <Route path="/archives" element={<PageArchives />} />
-      <Route path="/notes/:noteId" element={<PageDetail />} />
-      <Route path="/notes/new" element={<PageCreate />} />
+      <Route element={<AppLayout />}>
+        <Route
+          path="/"
+          element={<PageHome authedUserName={authedUser.name} />}
+        />
+        <Route path="/archives" element={<PageArchives />} />
+        <Route path="/notes/:noteId" element={<PageDetail />} />
+        <Route path="/notes/new" element={<PageCreate />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Router>
   );

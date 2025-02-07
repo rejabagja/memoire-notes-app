@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from "react-router-dom";
-import AppLayout from "../../components/layouts/app";
 import { useEffect, useState } from "react";
 import {
   archiveNote,
@@ -53,7 +52,7 @@ function PageDetail() {
   };
 
   return (
-    <AppLayout>
+    <>
       {note ? (
         <>
           <section className="detail-page">
@@ -87,7 +86,7 @@ function PageDetail() {
           <h3>404 | Notes not found</h3>
         </section>
       )}
-    </AppLayout>
+    </>
   );
 }
 

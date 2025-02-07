@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getArchivedNotes, searchNotes } from "../../utils/local-data";
-import AppLayout from "../../components/layouts/app";
 import SearchBar from "../../components/SearchBar";
 import NotesList from "../../components/NotesList";
 
@@ -24,13 +23,11 @@ function PageArchives() {
   const filteredNotes = searchNotes(keyword, notes);
 
   return (
-    <AppLayout>
-      <section className="archives-page">
-        <h2>Archived Notes</h2>
-        <SearchBar keyword={keyword} keywordChange={changeSearchKeyword} />
-        <NotesList notes={filteredNotes} />
-      </section>
-    </AppLayout>
+    <section className="archives-page">
+      <h2>Archived Notes</h2>
+      <SearchBar keyword={keyword} keywordChange={changeSearchKeyword} />
+      <NotesList notes={filteredNotes} />
+    </section>
   );
 }
 

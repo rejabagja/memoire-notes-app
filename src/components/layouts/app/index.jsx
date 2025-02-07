@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { TAppLayout } from "../types";
 
-function AppLayout({ children }) {
+function AppLayout() {
   return (
     <>
       <header>
@@ -18,7 +18,9 @@ function AppLayout({ children }) {
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 }
