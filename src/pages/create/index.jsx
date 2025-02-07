@@ -1,34 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { addNote } from "../../utils/local-data";
-import Swal from "sweetalert2";
 import AppLayout from "../../components/layouts/app";
 import { BiCheck } from "react-icons/bi";
-import { useInput } from "../../utils";
+import { useCreate } from "./hooks";
 
 function PageCreate() {
-  const navigate = useNavigate();
-  const [title, handleTitleChange] = useInput();
-  const [body, setBody] = useState("");
-
-  const handleBodyChange = (event) => setBody(() => event.target.innerHTML);
-
-  const handleSave = () => {
-    if (title === "" || body === "") {
-      showAlert();
-      return;
-    }
-    addNote({ title, body });
-    navigate("/");
-  };
-
-  const showAlert = () => {
-    Swal.fire({
-      title: "Opps!",
-      text: "Title and body cannot be empty.",
-      icon: "error",
-    });
-  };
+  const { title, handleTitleChange, handleBodyChange, handleSave } =
+    useCreate();
 
   return (
     <AppLayout>
@@ -49,7 +25,11 @@ function PageCreate() {
           ></div>
         </div>
         <div className="add-new-page__action">
-          <button className="action" onClick={() => handleSave()} title="save">
+          <button
+            className="action"
+            onClick={() => handleSave()}
+            title="Save New Note"
+          >
             <BiCheck />
           </button>
         </div>

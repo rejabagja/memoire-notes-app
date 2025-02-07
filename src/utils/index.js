@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const showFormattedDate = (date) => {
   const options = {
@@ -20,4 +21,12 @@ function useInput(defaultValue = "") {
   return [value, onValueChangeHandler];
 }
 
-export { showFormattedDate, useInput };
+function showErrorAlert({ title = "Error", message }) {
+  return Swal.fire({
+    title,
+    text: message,
+    icon: "error",
+  });
+};
+
+export { showFormattedDate, useInput, showErrorAlert };

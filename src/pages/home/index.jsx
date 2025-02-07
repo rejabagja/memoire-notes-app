@@ -21,7 +21,7 @@ function PageHome({ authedUserName }) {
         <NotesList notes={filteredNotes} />
         <div className="homepage__action">
           <Link to="/notes/new">
-            <button type="button" className="action" title="create">
+            <button type="button" className="action" title="Create New Note">
               <BiPlus />
             </button>
           </Link>

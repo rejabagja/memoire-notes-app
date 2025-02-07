@@ -6,7 +6,9 @@ function AppLayout({ children }) {
     <>
       <header>
         <h1>
-          <Link to="/">Memoire</Link>
+          <Link to="/" title="Home Page">
+            Memoire
+          </Link>
         </h1>
         <nav className="navigation">
           <ul>
