@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import AppRoutes from "./routes";
-import { getUserLogged } from "./utils/notes";
+import { useEffect, useState, useContext } from "react";
+import ColorModeContext from "../contexts/color-mode";
+import { getUserLogged } from "../utils/notes";
 
-function App() {
+function useApp() {
   const [authedUser, setAuthedUser] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
+  const { colorMode } = useContext(ColorModeContext);
 
   useEffect(() => {
     const fetchedAuthedUser = async () => {
@@ -17,14 +18,7 @@ function App() {
     fetchedAuthedUser();
   }, []);
 
-  if (initialLoading) {
-    return null;
-  }
-  return (
-    <div className="app-container" data-theme="dark">
-      <AppRoutes authedUser={authedUser} />
-    </div>
-  );
+  return { authedUser, initialLoading, colorMode };
 }
 
-export default App;
+export { useApp };

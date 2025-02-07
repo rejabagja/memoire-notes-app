@@ -1,4 +1,4 @@
-import { Routes as Router, Route, redirect } from "react-router-dom";
+import { Routes as Router, Route } from "react-router-dom";
 import PageHome from "../pages/home";
 import PageArchives from "../pages/archives";
 import PageDetail from "../pages/detail";
