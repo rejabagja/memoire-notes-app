@@ -25,7 +25,10 @@ function AppRoutes({ authedUser }) {
           path="/"
           element={<PageHome authedUserName={authedUser.name} />}
         />
-        <Route path="/archives" element={<PageArchives />} />
+        <Route
+          path="/archives"
+          element={<PageArchives authedUserName={authedUser.name} />}
+        />
         <Route path="/notes/:noteId" element={<PageDetail />} />
         <Route path="/notes/new" element={<PageCreate />} />
       </Route>

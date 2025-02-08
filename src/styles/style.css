@@ -71,10 +71,38 @@ header h1 {
   flex: 1;
 }
 
-header .navigation ul li {
-  display: inline-block;
+header h1 a {
+  text-decoration: none;
+}
+
+header .navigation {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.navigation .toggle {
   font-size: 24px;
-  margin: 0 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--on-background);
+  border: none;
+  margin-left: 16px;
+  width: 30px;
+  height: 30px;
+}
+
+.navigation .toggle.logout {
+  margin-left: 28px;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation .active {
+  text-decoration: underline;
 }
 
 main {
@@ -84,7 +112,7 @@ main {
   max-width: 1200px;
 }
 
-.homepage .username {
+.username {
   text-align: right;
   margin-bottom: 16px;
 }
@@ -255,5 +283,16 @@ main {
 @media screen and (min-width: 1200px) {
   .notes-list {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  nav.navigation {
+    margin-left: 0;
   }
 }

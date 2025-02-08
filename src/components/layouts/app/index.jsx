@@ -1,22 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
 import { TAppLayout } from "../types";
+import Navigation from "../../Navigation";
 
 function AppLayout() {
   return (
     <>
       <header>
         <h1>
-          <Link to="/" title="Home Page">
+          <Link to="/" title="Go to Home">
             Memoire
           </Link>
         </h1>
-        <nav className="navigation">
-          <ul>
-            <li>
-              <Link to="/archives">Archives</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
       </header>
       <main>
         <Outlet />
