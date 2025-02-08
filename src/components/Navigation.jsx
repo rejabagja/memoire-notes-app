@@ -1,15 +1,31 @@
 import { Link } from "react-router-dom";
 import { GrLanguage } from "react-icons/gr";
 import { FiMoon, FiSun, FiLogOut } from "react-icons/fi";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import ColorModeContext from "../contexts/color-mode";
 import LocaleContext from "../contexts/locale";
+import AuthUserContext from "../contexts/auth-user";
+import { showLogoutConfirm } from "../utils/notes";
+import { deleteAccessToken } from "../utils/notes";
 
-function Navigation() {
+function Navigation({ onLogout }) {
   const { pathname } = useLocation();
   const { colorMode, toggleColorMode } = useContext(ColorModeContext);
   const { locale, toggleLocale } = useContext(LocaleContext);
+  const { setAuthedUser } = useContext(AuthUserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    const { isConfirmed } = await showLogoutConfirm(locale);
+    if (!isConfirmed) {
+      return;
+    }
+
+    deleteAccessToken();
+    setAuthedUser(null);
+    navigate("/login");
+  };
 
   return (
     <nav className="navigation">
@@ -40,7 +56,7 @@ function Navigation() {
       >
         {colorMode === "light" ? <FiMoon /> : <FiSun />}
       </button>
-      <button className="toggle logout" title="Logout">
+      <button className="toggle logout" title="Logout" onClick={handleLogout}>
         <FiLogOut />
       </button>
     </nav>

@@ -1,16 +1,12 @@
+import { useContext } from "react";
 import AppRoutes from "../routes";
-import { useApp } from "./hooks";
+import ColorModeContext from "../contexts/color-mode";
 
 function App() {
-  const { authedUser, initialLoading, colorMode } = useApp();
-
-  if (initialLoading) {
-    return null;
-  }
-
+  const { colorMode } = useContext(ColorModeContext);
   return (
     <div className="app-container" data-theme={colorMode}>
-      <AppRoutes authedUser={authedUser} />
+      <AppRoutes />
     </div>
   );
 }

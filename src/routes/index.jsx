@@ -7,8 +7,14 @@ import PageNotFound from "../pages/_not-found";
 import PageLogin from "../pages/auth/login";
 import PageRegister from "../pages/auth/register";
 import AppLayout from "../components/layouts/app";
+import { useContext } from "react";
+import AuthUserContext from "../contexts/auth-user";
 
-function AppRoutes({ authedUser }) {
+function AppRoutes() {
+  const { authedUser, isLoading } = useContext(AuthUserContext);
+
+  if (isLoading) return null;
+
   if (!authedUser) {
     return (
       <Router>
@@ -21,14 +27,8 @@ function AppRoutes({ authedUser }) {
   return (
     <Router>
       <Route element={<AppLayout />}>
-        <Route
-          path="/"
-          element={<PageHome authedUserName={authedUser.name} />}
-        />
-        <Route
-          path="/archives"
-          element={<PageArchives authedUserName={authedUser.name} />}
-        />
+        <Route path="/" element={<PageHome />} />
+        <Route path="/archives" element={<PageArchives />} />
         <Route path="/notes/:noteId" element={<PageDetail />} />
         <Route path="/notes/new" element={<PageCreate />} />
       </Route>

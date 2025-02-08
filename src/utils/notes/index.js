@@ -9,6 +9,10 @@ function putAccessToken(accessToken) {
   return localStorage.setItem("accessToken", accessToken);
 }
 
+function deleteAccessToken() {
+  return localStorage.removeItem("accessToken");
+}
+
 async function fetchWithToken(url, options = {}) {
   return fetch(url, {
     ...options,
@@ -31,7 +35,6 @@ async function login({ email, password }) {
   const responseJson = await response.json();
 
   if (responseJson.status !== "success") {
-    // alert(responseJson.message);
     return { error: true, data: null, message: responseJson.message };
   }
 
@@ -208,6 +211,19 @@ function showDeleteNoteConfirm(locale) {
    });
 };
 
+function showLogoutConfirm(locale) {
+   return Swal.fire({
+     title:
+       locale === "id"
+         ? "Apakah kamu yakin ingin keluar aplikasi?"
+         : "Are you sure want logout?",
+     showDenyButton: true,
+     confirmButtonText: locale === "id" ? "Iya" : "Yes",
+     denyButtonText: locale === "id" ? "Tidak" : "No",
+     icon: "warning",
+   });
+};
+
 function searchNotes(keyword, notes) {
   if (notes === null) return notes;
   const result = notes.filter((note) =>
@@ -219,6 +235,7 @@ function searchNotes(keyword, notes) {
 export {
   getAccessToken,
   putAccessToken,
+  deleteAccessToken,
   login,
   register,
   getUserLogged,
@@ -232,5 +249,6 @@ export {
   validateRegisterForm,
   validateLoginForm,
   showDeleteNoteConfirm,
+  showLogoutConfirm,
   searchNotes
 };

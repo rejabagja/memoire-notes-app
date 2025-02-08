@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useInput } from "../../utils";
 import { useNavigate } from "react-router-dom";
-import { login, putAccessToken, register, validateLoginForm, validateRegisterForm } from "../../utils/notes";
+import { deleteAccessToken, getUserLogged, login, putAccessToken, register, validateLoginForm, validateRegisterForm } from "../../utils/notes";
+import { useContext } from "react";
+import AuthUserContext from "../../contexts/auth-user";
 
 
 function useLogin() {
@@ -10,6 +12,7 @@ function useLogin() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { setAuthedUser } = useContext(AuthUserContext);
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -22,16 +25,23 @@ function useLogin() {
     }
 
     setLoading(true);
-    login({ email, password }).then(({ error, data, message }) => {
+    login({ email, password }).then(async ({ error: errorLogin, data: { accessToken }, message }) => {
       setLoading(false);
-      if (error) {
+      if (errorLogin) {
         setError(message);
         return;
       }
-      putAccessToken(data.accessToken);
-      alert("login success");
-      navigate("/");
-      window.location.reload();
+      putAccessToken(accessToken);
+
+      const { error: errorFetchUser, data } = await getUserLogged();
+      if (!errorFetchUser) {
+        setAuthedUser(data);
+        alert("login success");
+        navigate("/");
+        return;
+      }
+      setError("Login failed")
+      deleteAccessToken();
     });
   };
 

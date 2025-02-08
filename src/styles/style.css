@@ -52,11 +52,11 @@ body {
 .not-found-page a {
   text-decoration: none;
   padding-bottom: 6px;
-  border-bottom: 2px solid #ebe8e8;
+  border-bottom: 2px solid var(--primary);
 }
 
 .not-found-page a:hover {
-  color: #b5e4f2;
+  font-weight: 800;
 }
 
 header {
@@ -294,5 +294,9 @@ main {
 
   nav.navigation {
     margin-left: 0;
+  }
+
+  .not-found-page {
+    flex-direction: column;
   }
 }
