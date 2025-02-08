@@ -195,12 +195,15 @@ function validateLoginForm({ email, password }) {
   return null;
 };
 
-function showDeleteNoteConfirm() {
+function showDeleteNoteConfirm(locale) {
    return Swal.fire({
-     title: "Are you sure want to delete this note?",
+     title:
+       locale === "id"
+         ? "Apakah kamu yakin ingin menghapus catatan ini?"
+         : "Are you sure want to delete this notes?",
      showDenyButton: true,
-     confirmButtonText: "Yes",
-     denyButtonText: "No",
+     confirmButtonText: locale === "id" ? "Iya" : "Yes",
+     denyButtonText: locale === "id" ? "Tidak" : "No",
      icon: "warning",
    });
 };

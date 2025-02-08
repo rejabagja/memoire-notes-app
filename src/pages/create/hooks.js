@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { showErrorAlert, useInput } from "../../utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { addNote } from "../../utils/notes";
 
 function useCreate() {
@@ -8,17 +8,13 @@ function useCreate() {
   const [title, handleTitleChange] = useInput();
   const [body, setBody] = useState("");
 
-  useEffect(() => {
-    document.title = "Memoire Notes App | Create New Note";
-  }, []);
-
   const handleBodyChange = (event) => setBody(() => event.target.innerHTML);
 
-  const handleSave = () => {
+  const handleSave = (message) => {
     if (title === "" || body === "") {
       showErrorAlert({
         title: "Opps!!",
-        message: "Title and body cannot be empty",
+        message,
       });
       return;
     }

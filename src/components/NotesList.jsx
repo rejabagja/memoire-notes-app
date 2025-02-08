@@ -1,8 +1,16 @@
 import NoteItem from "./NoteItem";
 import { TNotesList } from "./types";
+import { useContext } from "react";
+import LocaleContext from "../contexts/locale";
 
 function NotesList({ notes }) {
-  if (!notes) return <p>fetching notes ...</p>;
+  const { locale } = useContext(LocaleContext);
+
+  if (!notes)
+    return (
+      <p>{locale === "id" ? "Memuat catatan ..." : "fetching notes ..."}</p>
+    );
+
   return (
     <>
       {notes.length ? (
@@ -19,7 +27,7 @@ function NotesList({ notes }) {
         </section>
       ) : (
         <section className="notes-list-empty">
-          <p>No notes</p>
+          <p>{locale === "id" ? "Tidak ada catatan" : "No notes"}</p>
         </section>
       )}
     </>

@@ -1,13 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
 import { TAppLayout } from "../types";
 import Navigation from "../../Navigation";
+import { useContext } from "react";
+import LocaleContext from "../../../contexts/locale";
 
 function AppLayout() {
+  const { locale } = useContext(LocaleContext);
   return (
     <>
       <header>
         <h1>
-          <Link to="/" title="Go to Home">
+          <Link
+            to="/"
+            title={locale === "id" ? "Pergi ke Beranda" : "Go to Home"}
+          >
             Memoire
           </Link>
         </h1>

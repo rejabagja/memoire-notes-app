@@ -16,10 +16,6 @@ function useDetails() {
     });
   }, [noteId]);
 
-  useEffect(() => {
-    document.title = "Memoire Notes App | Detail Note";
-  }, []);
-
   const handleArchive = () => {
     if (!note.archived) {
       archiveNote(noteId).then(({ error }) => {
@@ -46,8 +42,8 @@ function useDetails() {
     }
   };
 
-  const handleDelete = async () => {
-    const { isConfirmed } = await showDeleteNoteConfirm();
+  const handleDelete = async (locale) => {
+    const { isConfirmed } = await showDeleteNoteConfirm(locale);
     if (!isConfirmed) {
       return;
     }

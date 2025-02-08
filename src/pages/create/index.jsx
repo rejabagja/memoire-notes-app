@@ -1,7 +1,10 @@
 import { BiCheck } from "react-icons/bi";
 import { useCreate } from "./hooks";
+import { useContext } from "react";
+import LocaleContext from "../../contexts/locale";
 
 function PageCreate() {
+  const { locale } = useContext(LocaleContext);
   const { title, handleTitleChange, handleBodyChange, handleSave } =
     useCreate();
 
@@ -13,20 +16,34 @@ function PageCreate() {
           className="add-new-page__input__title"
           value={title}
           onChange={handleTitleChange}
-          placeholder="Input your new title here ... "
+          placeholder={
+            locale === "id"
+              ? "Masukan judul baru anda di sini"
+              : "Input your new title here ... "
+          }
         />
         <div
           className="add-new-page__input__body"
           contentEditable
-          data-placeholder="Input your new body here ... "
+          data-placeholder={
+            locale === "id"
+              ? "Masukan isi catatan baru anda di sini"
+              : "Input your new body here ... "
+          }
           onInput={handleBodyChange}
         ></div>
       </div>
       <div className="add-new-page__action">
         <button
           className="action"
-          onClick={() => handleSave()}
-          title="Save New Note"
+          onClick={() =>
+            handleSave(
+              locale === "id"
+                ? "Judul dan isi catatan tidak boleh kosong"
+                : "Title and body cannot be empty"
+            )
+          }
+          title={locale === "id" ? "Simpan Catatan Baru" : "Save New Note"}
         >
           <BiCheck />
         </button>

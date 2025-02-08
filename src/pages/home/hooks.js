@@ -22,7 +22,6 @@ function useHome() {
       }
     };
     fetchActiveNotes();
-    document.title = "Memoire Notes App | Home";
   }, []);
 
   return { notes, keyword, changeSearchKeyword };

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const showFormattedDate = (date) => {
+const showFormattedDate = (date, locale) => {
   const options = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   };
-  return new Date(date).toLocaleDateString('id-ID', options);
+  return new Date(date).toLocaleDateString(locale, options);
 };
 
 function useInput(defaultValue = "") {

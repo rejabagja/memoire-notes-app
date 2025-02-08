@@ -64,3 +64,7 @@ export const TFormRegister = {
   ]),
   loading: PropTypes.bool.isRequired,
 };
+
+export const TAuthedUserDisplay = {
+  name: PropTypes.string.isRequired,
+}

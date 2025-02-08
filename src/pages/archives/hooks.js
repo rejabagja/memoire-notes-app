@@ -22,7 +22,6 @@ function useArchives() {
       }
     };
     fetchArchivedNotes();
-    document.title = "Memoire Notes App | Archive";
   }, []);
 
   return { notes, keyword, changeSearchKeyword };
