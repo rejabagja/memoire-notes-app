@@ -1,22 +1,16 @@
 :root {
   --primary: #bb86fc;
-  --primary-variant: #3700b3;
-  --secondary: #03dac6;
   --background: #121212;
-  --surface: #121212;
   --error: #cf6679;
-  --warning: #f39c12;
   --on-background: #ffffff;
   --on-background-grey: #c7c7c7;
-  --on-surface: #ffffff;
 }
 
 [data-theme="light"] {
+  --primary: #8051b9;
   --background: #dddddd;
-  --suface: #ffffff;
   --on-background: #333333;
   --on-background-grey: #6d6d6d;
-  --on-surface: #333333;
 }
 
 * {
@@ -71,7 +65,7 @@ header h1 {
   flex: 1;
 }
 
-header h1 a {
+.brand {
   text-decoration: none;
 }
 
@@ -82,18 +76,21 @@ header .navigation {
   margin-left: 20px;
 }
 
-.navigation .toggle {
+.toggle {
   font-size: 24px;
   cursor: pointer;
   background-color: transparent;
   color: var(--on-background);
   border: none;
-  margin-left: 16px;
   width: 30px;
   height: 30px;
 }
 
-.navigation .toggle.logout {
+.marleft {
+  margin-left: 16px;
+}
+
+.logout {
   margin-left: 28px;
 }
 

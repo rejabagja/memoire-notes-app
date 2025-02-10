@@ -8,8 +8,9 @@ import LocaleContext from "../contexts/locale";
 import AuthUserContext from "../contexts/auth-user";
 import { showLogoutConfirm } from "../utils/notes";
 import { deleteAccessToken } from "../utils/notes";
+import ButtonToggle from "./ButtonToggle";
 
-function Navigation({ onLogout }) {
+function Navigation() {
   const { pathname } = useLocation();
   const { colorMode, toggleColorMode } = useContext(ColorModeContext);
   const { locale, toggleLocale } = useContext(LocaleContext);
@@ -32,18 +33,16 @@ function Navigation({ onLogout }) {
       <Link to="/archives" className={pathname === "/archives" ? "active" : ""}>
         {locale === "en" ? "Archives" : "Arsip"}
       </Link>
-      <button
-        className="toggle"
+      <ButtonToggle
         title={
           locale === "id" ? "Ubah ke bahasa Inggris" : "Change to Indonesian"
         }
         onClick={toggleLocale}
+        classname="marleft"
       >
         <GrLanguage />
-      </button>
-      <button
-        className="toggle"
-        onClick={toggleColorMode}
+      </ButtonToggle>
+      <ButtonToggle
         title={
           locale === "en"
             ? colorMode === "light"
@@ -53,12 +52,14 @@ function Navigation({ onLogout }) {
             ? "Ganti ke Mode Gelap"
             : "Ganti ke Mode Terang"
         }
+        classname="marleft"
+        onClick={toggleColorMode}
       >
         {colorMode === "light" ? <FiMoon /> : <FiSun />}
-      </button>
-      <button className="toggle logout" title="Logout" onClick={handleLogout}>
+      </ButtonToggle>
+      <ButtonToggle classname="logout" title="Logout" onClick={handleLogout}>
         <FiLogOut />
-      </button>
+      </ButtonToggle>
     </nav>
   );
 }

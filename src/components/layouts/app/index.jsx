@@ -13,6 +13,7 @@ function AppLayout() {
           <Link
             to="/"
             title={locale === "id" ? "Pergi ke Beranda" : "Go to Home"}
+            className="brand"
           >
             Memoire
           </Link>

@@ -57,7 +57,8 @@
   font-size: 18px;
   font-family: inherit;
   cursor: pointer;
-  background-color: var(--primary);
+  background-color: var(--on-background);
+  color: var(--background);
 }
 
 .auth-form__link a {
@@ -70,5 +71,5 @@
 
 .auth-form__error p {
   font-size: 15px;
-  color: red;
+  color: var(--error);
 }
