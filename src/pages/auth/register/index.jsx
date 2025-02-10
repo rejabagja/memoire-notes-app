@@ -1,5 +1,6 @@
 import "../Auth.css";
 import FormRegister from "../../../components/auth/FormRegister";
+import AuthLayout from "../../../components/layouts/auth";
 import { useRegister } from "../hooks";
 
 function PageRegister() {
@@ -18,7 +19,7 @@ function PageRegister() {
   } = useRegister();
 
   return (
-    <div className="register-page">
+    <AuthLayout page="register-page">
       <FormRegister
         name={name}
         email={email}
@@ -32,7 +33,7 @@ function PageRegister() {
         onRegisterError={error}
         loading={loading}
       />
-    </div>
+    </AuthLayout>
   );
 }
 

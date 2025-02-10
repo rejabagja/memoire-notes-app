@@ -29,5 +29,13 @@ function showErrorAlert({ title = "Error", message }) {
   });
 };
 
+function showSuccessAlert({ title = "Success", message }) {
+  return Swal.fire({
+    title,
+    text: message,
+    icon: "success",
+  });
+};
 
-export { showFormattedDate, useInput, showErrorAlert };
+
+export { showFormattedDate, useInput, showErrorAlert, showSuccessAlert };

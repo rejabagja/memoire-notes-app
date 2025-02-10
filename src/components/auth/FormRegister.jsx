@@ -1,6 +1,8 @@
 import AuthForm from "./AuthForm";
 import AuthFormInput from "./AuthFormInput";
 import { TFormRegister } from "../types";
+import { useContext } from "react";
+import LocaleContext from "../../contexts/locale";
 
 function FormRegister({
   onRegister,
@@ -15,23 +17,28 @@ function FormRegister({
   onRegisterError,
   loading,
 }) {
+  const { locale } = useContext(LocaleContext);
   return (
     <AuthForm
       title="Register"
-      subtitle="Fill the form to register account."
+      subtitle={
+        locale === "id"
+          ? "Isi form untuk mendaftar akun."
+          : "Fill the form to register account."
+      }
       link="login"
       error={onRegisterError}
-      onsubmit={onRegister}
+      authHandler={onRegister}
     >
       <AuthFormInput
-        label="Name"
+        label={locale === "id" ? "Nama" : "Name"}
         type="text"
         value={name}
         onChange={nameChange}
       />
       <AuthFormInput
         label="Email"
-        type="email"
+        type="text"
         value={email}
         onChange={emailChange}
       />
@@ -42,13 +49,19 @@ function FormRegister({
         onChange={passwordChange}
       />
       <AuthFormInput
-        label="Confirm Password"
+        label={locale === "id" ? "Konfirmasi Password" : "Confirm Password"}
         type="password"
         value={confirmPassword}
         onChange={confirmPasswordChange}
       />
       <button type="submit" disabled={loading}>
-        {loading ? "Loading..." : "Register"}
+        {loading
+          ? locale === "id"
+            ? "Memproses ..."
+            : "Loading ..."
+          : locale === "id"
+          ? "Daftar"
+          : "Register"}
       </button>
     </AuthForm>
   );

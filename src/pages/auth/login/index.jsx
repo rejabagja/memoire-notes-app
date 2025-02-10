@@ -1,5 +1,6 @@
 import "../Auth.css";
 import FormLogin from "../../../components/auth/FormLogin";
+import AuthLayout from "../../../components/layouts/auth";
 import { useLogin } from "../hooks";
 
 function PageLogin() {
@@ -14,7 +15,7 @@ function PageLogin() {
   } = useLogin();
 
   return (
-    <div className="login-page">
+    <AuthLayout page="login-page">
       <FormLogin
         email={email}
         password={password}
@@ -24,7 +25,7 @@ function PageLogin() {
         onLoginError={error}
         loading={loading}
       />
-    </div>
+    </AuthLayout>
   );
 }
 

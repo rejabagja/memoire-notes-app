@@ -169,31 +169,31 @@ function isValidEmail(email) {
   return regex.test(email);
 }
 
-function validateRegisterForm({ name, email, password, confirmPassword }) {
+function validateRegisterForm({ locale, name, email, password, confirmPassword }) {
   if (!name || !email || !password || !confirmPassword) {
-    return "All fields are required.";
+    return locale === "id" ? "Semua field/input harus diisi." : "All fields are required.";
   }
 
   if (!isValidEmail(email)) {
-    return "Invalid email format.";
+    return locale === "id" ? "Format email tidak valid." : "Invalid email format.";
   }
 
   if (password.length < 6) {
-    return "Password must be at least 6 characters long.";
+    return locale === "id" ? "Password harus minimal 6 karakter." : "Password must be at least 6 characters long.";
   }
   if (password !== confirmPassword) {
-    return "Passwords do not match.";
+    return locale === "id" ? "Password tidak cocok." : "Passwords do not match.";
   }
   return null;
 };
 
-function validateLoginForm({ email, password }) {
+function validateLoginForm({ locale, email, password }) {
   if (!email || !password) {
-    return "All fields are required.";
+    return locale === "id" ? "Semua field/input harus diisi." : "All fields are required.";
   }
 
   if (!isValidEmail(email)) {
-    return "Invalid email format.";
+    return locale === "id" ? "Format email tidak valid." : "Invalid email format.";
   }
   return null;
 };

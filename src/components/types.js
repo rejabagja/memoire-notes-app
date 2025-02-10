@@ -24,7 +24,7 @@ export const TAuthForm = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  onsubmit: PropTypes.func.isRequired,
+  authHandler: PropTypes.func.isRequired,
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([null])]),
 }
 

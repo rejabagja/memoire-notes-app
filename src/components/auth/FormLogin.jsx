@@ -1,6 +1,8 @@
 import AuthForm from "./AuthForm";
 import AuthFormInput from "./AuthFormInput";
 import { TFormLogin } from "../types";
+import LocaleContext from "../../contexts/locale";
+import { useContext } from "react";
 
 function FormLogin({
   onLogin,
@@ -11,17 +13,22 @@ function FormLogin({
   onLoginError,
   loading,
 }) {
+  const { locale } = useContext(LocaleContext);
   return (
     <AuthForm
       title="Sign In"
-      subtitle="Login to use app, please."
+      subtitle={
+        locale === "id"
+          ? "Yuk, login untuk menggunakan aplikasi."
+          : "Login to use app, please."
+      }
       link="register"
-      onsubmit={onLogin}
+      authHandler={onLogin}
       error={onLoginError}
     >
       <AuthFormInput
         label="Email"
-        type="email"
+        type="text"
         value={email}
         onChange={emailChange}
       />
@@ -32,7 +39,13 @@ function FormLogin({
         onChange={passwordChange}
       />
       <button type="submit" disabled={loading}>
-        {loading ? "Loading..." : "Login"}
+        {loading
+          ? locale === "id"
+            ? "Memproses ..."
+            : "Loading ..."
+          : locale === "id"
+          ? "Masuk"
+          : "Login"}
       </button>
     </AuthForm>
   );
