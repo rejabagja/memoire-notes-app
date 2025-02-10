@@ -1,3 +1,5 @@
+import { TButtonToggle } from "./types";
+
 function ButtonToggle({ children, title, classname, onClick }) {
   return (
     <button
@@ -9,5 +11,7 @@ function ButtonToggle({ children, title, classname, onClick }) {
     </button>
   );
 }
+
+ButtonToggle.propTypes = TButtonToggle;
 
 export default ButtonToggle;

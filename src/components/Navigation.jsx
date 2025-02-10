@@ -3,11 +3,10 @@ import { GrLanguage } from "react-icons/gr";
 import { FiMoon, FiSun, FiLogOut } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import ColorModeContext from "../contexts/color-mode";
-import LocaleContext from "../contexts/locale";
-import AuthUserContext from "../contexts/auth-user";
-import { showLogoutConfirm } from "../utils/notes";
-import { deleteAccessToken } from "../utils/notes";
+import ColorModeContext from "@contexts/color-mode";
+import LocaleContext from "@contexts/locale";
+import AuthUserContext from "@contexts/auth-user";
+import { showLogoutConfirm, deleteAccessToken } from "@utils/notes";
 import ButtonToggle from "./ButtonToggle";
 
 function Navigation() {

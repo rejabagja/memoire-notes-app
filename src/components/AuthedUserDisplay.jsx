@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import LocaleContext from "../contexts/locale";
+import LocaleContext from "@contexts/locale";
 import { TAuthedUserDisplay } from "./types";
 
 function AuthedUserDisplay({ name }) {

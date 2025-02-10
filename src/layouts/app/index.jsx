@@ -1,8 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
-import { TAppLayout } from "../types";
-import Navigation from "../../Navigation";
+import { TAppLayout } from "@layouts/types";
+import Navigation from "@components/Navigation";
 import { useContext } from "react";
-import LocaleContext from "../../../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function AppLayout() {
   const { locale } = useContext(LocaleContext);

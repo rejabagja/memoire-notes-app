@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function PageNotFound() {
   const { locale } = useContext(LocaleContext);

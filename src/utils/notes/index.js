@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { BASE_URL } from "../../constants";
+import { BASE_URL } from "@constants";
 
 function getAccessToken() {
   return localStorage.getItem("accessToken");

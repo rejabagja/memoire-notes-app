@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { showErrorAlert, useInput } from "../../utils";
+import { showErrorAlert, useInput } from "@utils";
 import { useState } from "react";
-import { addNote } from "../../utils/notes";
+import { addNote } from "@utils/notes";
 
 function useCreate() {
   const navigate = useNavigate();

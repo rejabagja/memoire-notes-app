@@ -1,9 +1,10 @@
-import { ColorModeProvider } from "../contexts/color-mode";
-import { LocaleProvider } from "../contexts/locale";
-import { AuthUserProvider } from "../contexts/auth-user";
+import { ColorModeProvider } from "@contexts/color-mode";
+import { LocaleProvider } from "@contexts/locale";
+import { AuthUserProvider } from "@contexts/auth-user";
 import { BrowserRouter } from "react-router-dom";
+import { TAppProvider } from "./types";
 
-export default function AppProvider({ children }) {
+function AppProvider({ children }) {
   return (
     <BrowserRouter>
       <AuthUserProvider>
@@ -14,3 +15,7 @@ export default function AppProvider({ children }) {
     </BrowserRouter>
   );
 }
+
+AppProvider.propTypes = TAppProvider;
+
+export default AppProvider;

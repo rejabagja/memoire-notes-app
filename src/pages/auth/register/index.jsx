@@ -1,7 +1,7 @@
-import "../Auth.css";
-import FormRegister from "../../../components/auth/FormRegister";
-import AuthLayout from "../../../components/layouts/auth";
-import { useRegister } from "../hooks";
+import "@pages/auth/Auth.css";
+import FormRegister from "@components/auth/FormRegister";
+import AuthLayout from "@layouts/auth";
+import { useRegister } from "@pages/auth/hooks";
 
 function PageRegister() {
   const {

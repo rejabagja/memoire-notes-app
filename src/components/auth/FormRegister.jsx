@@ -1,8 +1,8 @@
 import AuthForm from "./AuthForm";
 import AuthFormInput from "./AuthFormInput";
-import { TFormRegister } from "../types";
+import { TFormRegister } from "@components/types";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function FormRegister({
   onRegister,

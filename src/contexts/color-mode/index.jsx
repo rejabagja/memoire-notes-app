@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-
+import { TColorModeProvider } from "@contexts/types";
 const ColorModeContext = createContext();
 
 export function ColorModeProvider({ children }) {
@@ -30,5 +30,7 @@ export function ColorModeProvider({ children }) {
     </ColorModeContext.Provider>
   );
 }
+
+ColorModeProvider.propTypes = TColorModeProvider;
 
 export default ColorModeContext;

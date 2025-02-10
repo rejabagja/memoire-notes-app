@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-
+import { TLocaleProvider } from "@contexts/types";
 const LocaleContext = createContext();
 
 export function LocaleProvider({ children }) {
@@ -30,5 +30,7 @@ export function LocaleProvider({ children }) {
     </LocaleContext.Provider>
   );
 }
+
+LocaleProvider.propTypes = TLocaleProvider;
 
 export default LocaleContext;

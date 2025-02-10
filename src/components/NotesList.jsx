@@ -1,7 +1,7 @@
 import NoteItem from "./NoteItem";
 import { TNotesList } from "./types";
 import { useContext } from "react";
-import LocaleContext from "../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function NotesList({ notes }) {
   const { locale } = useContext(LocaleContext);

@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useInput } from "../../utils";
+import { useInput, showSuccessAlert } from "@utils";
 import { useNavigate } from "react-router-dom";
-import { deleteAccessToken, getUserLogged, login, putAccessToken, register, validateLoginForm, validateRegisterForm } from "../../utils/notes";
+import { deleteAccessToken, getUserLogged, login, putAccessToken, register, validateLoginForm, validateRegisterForm } from "@utils/notes";
 import { useContext } from "react";
-import AuthUserContext from "../../contexts/auth-user";
-import LocaleContext from "../../contexts/locale";
-import { showSuccessAlert } from "../../utils";
+import AuthUserContext from "@contexts/auth-user";
+import LocaleContext from "@contexts/locale";
 
 
 function useLogin() {

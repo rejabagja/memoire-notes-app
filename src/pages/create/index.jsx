@@ -1,7 +1,7 @@
 import { BiCheck } from "react-icons/bi";
 import { useCreate } from "./hooks";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function PageCreate() {
   const { locale } = useContext(LocaleContext);

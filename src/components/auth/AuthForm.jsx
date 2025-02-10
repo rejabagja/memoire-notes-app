@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
-import { TAuthForm } from "../types";
+import LocaleContext from "@contexts/locale";
+import { TAuthForm } from "@components/types";
 
 function AuthForm({ children, title, subtitle, link, authHandler, error }) {
   const { locale } = useContext(LocaleContext);

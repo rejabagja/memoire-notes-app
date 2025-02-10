@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getArchivedNotes } from "../../utils/notes";
+import { getArchivedNotes } from "@utils/notes";
 
 function useArchives() {
   const [searchParams, setSearchParams] = useSearchParams();

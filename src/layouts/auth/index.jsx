@@ -1,5 +1,5 @@
-import FloatToggle from "../../FloatToggle";
-import { TAuthLayout } from "../types";
+import FloatToggle from "@components/FloatToggle";
+import { TAuthLayout } from "@layouts/types";
 function AuthLayout({ children, page }) {
   return (
     <div className={page}>

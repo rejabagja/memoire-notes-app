@@ -1,7 +1,7 @@
-import "../Auth.css";
-import FormLogin from "../../../components/auth/FormLogin";
-import AuthLayout from "../../../components/layouts/auth";
-import { useLogin } from "../hooks";
+import "@pages/auth/Auth.css";
+import FormLogin from "@components/auth/FormLogin";
+import AuthLayout from "@layouts/auth";
+import { useLogin } from "@pages/auth/hooks";
 
 function PageLogin() {
   const {

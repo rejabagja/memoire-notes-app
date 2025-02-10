@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import parser from "html-react-parser";
 import { TNoteItem } from "./types";
 import { useContext } from "react";
-import LocaleContext from "../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function NoteItem({ id, title, createdAt, body }) {
   const { locale } = useContext(LocaleContext);

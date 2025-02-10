@@ -68,3 +68,10 @@ export const TFormRegister = {
 export const TAuthedUserDisplay = {
   name: PropTypes.string.isRequired,
 }
+
+export const TButtonToggle = { 
+  children: PropTypes.node, 
+  title: PropTypes.string, 
+  classname: PropTypes.string, 
+  onClick: PropTypes.func 
+};

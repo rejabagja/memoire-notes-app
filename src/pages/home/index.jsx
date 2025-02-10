@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import SearchBar from "../../components/SearchBar";
-import NotesList from "../../components/NotesList";
-import AuthedUserDisplay from "../../components/AuthedUserDisplay";
+import SearchBar from "@components/SearchBar";
+import NotesList from "@components/NotesList";
+import AuthedUserDisplay from "@components/AuthedUserDisplay";
 import { BiPlus } from "react-icons/bi";
-import { searchNotes } from "../../utils/notes";
+import { searchNotes } from "@utils/notes";
 import { useHome } from "./hooks";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
-import AuthUserContext from "../../contexts/auth-user";
+import LocaleContext from "@contexts/locale";
+import AuthUserContext from "@contexts/auth-user";
 
 function PageHome() {
   const { locale } = useContext(LocaleContext);

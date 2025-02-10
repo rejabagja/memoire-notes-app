@@ -3,8 +3,8 @@ import ButtonToggle from "./ButtonToggle";
 import { GrLanguage } from "react-icons/gr";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { useContext } from "react";
-import ColorModeContext from "../contexts/color-mode";
-import LocaleContext from "../contexts/locale";
+import ColorModeContext from "@contexts/color-mode";
+import LocaleContext from "@contexts/locale";
 
 function FloatToggle() {
   const { colorMode, toggleColorMode } = useContext(ColorModeContext);

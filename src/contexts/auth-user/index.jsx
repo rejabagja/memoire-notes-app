@@ -1,6 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import { getUserLogged, putAccessToken } from "../../utils/notes";
-
+import { getUserLogged } from "@/utils/notes";
+import { TAuthUserProvider } from "@contexts/types";
 const AuthUserContext = createContext();
 
 export function AuthUserProvider({ children }) {
@@ -31,5 +31,7 @@ export function AuthUserProvider({ children }) {
     </AuthUserContext.Provider>
   );
 }
+
+AuthUserProvider.propTypes = TAuthUserProvider;
 
 export default AuthUserContext;

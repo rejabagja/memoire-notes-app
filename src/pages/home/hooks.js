@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getActiveNotes } from "../../utils/notes";
+import { getActiveNotes } from "@utils/notes";
 
 function useHome() {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -1,9 +1,9 @@
-import { showFormattedDate } from "../../utils";
+import { showFormattedDate } from "@utils";
 import parser from "html-react-parser";
 import { BiArchiveIn, BiArchiveOut, BiTrashAlt } from "react-icons/bi";
 import { useDetails } from "./hooks";
 import { useContext } from "react";
-import LocaleContext from "../../contexts/locale";
+import LocaleContext from "@contexts/locale";
 
 function PageDetail() {
   const { locale } = useContext(LocaleContext);

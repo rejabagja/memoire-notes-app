@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import AppRoutes from "../routes";
-import ColorModeContext from "../contexts/color-mode";
+import AppRoutes from "@routes";
+import ColorModeContext from "@contexts/color-mode";
 
 function App() {
   const { colorMode } = useContext(ColorModeContext);

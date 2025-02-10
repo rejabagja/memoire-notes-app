@@ -1,7 +1,7 @@
 import AuthForm from "./AuthForm";
 import AuthFormInput from "./AuthFormInput";
-import { TFormLogin } from "../types";
-import LocaleContext from "../../contexts/locale";
+import { TFormLogin } from "@components/types";
+import LocaleContext from "@contexts/locale";
 import { useContext } from "react";
 
 function FormLogin({

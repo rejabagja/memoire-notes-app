@@ -1,4 +1,4 @@
-import { TAuthFormInput } from "../types";
+import { TAuthFormInput } from "@components/types";
 
 function AuthFormInput({ label, type, value, onChange }) {
   return (
