@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { archiveNote, getNote, showDeleteNoteConfirm, unarchiveNote } from "../../utils/notes";
+import { archiveNote, deleteNote, getNote, showDeleteNoteConfirm, unarchiveNote } from "../../utils/notes";
 import { showErrorAlert } from "../../utils";
 
 function useDetails() {
