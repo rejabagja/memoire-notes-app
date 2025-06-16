@@ -1,8 +1,16 @@
-import PropTypes from "prop-types";
 import NoteItem from "./NoteItem";
-import { noteItemPropTypes } from "../types";
+import { TNotesList } from "./types";
+import { useContext } from "react";
+import LocaleContext from "@contexts/locale";
 
 function NotesList({ notes }) {
+  const { locale } = useContext(LocaleContext);
+
+  if (!notes)
+    return (
+      <p>{locale === "id" ? "Memuat catatan ..." : "fetching notes ..."}</p>
+    );
+
   return (
     <>
       {notes.length ? (
@@ -19,15 +27,13 @@ function NotesList({ notes }) {
         </section>
       ) : (
         <section className="notes-list-empty">
-          <p>No notes found</p>
+          <p>{locale === "id" ? "Tidak ada catatan" : "No notes"}</p>
         </section>
       )}
     </>
   );
 }
 
-NotesList.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.shape(noteItemPropTypes)).isRequired,
-};
+NotesList.propTypes = TNotesList;
 
 export default NotesList;

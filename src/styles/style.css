@@ -1,22 +1,16 @@
 :root {
   --primary: #bb86fc;
-  --primary-variant: #3700b3;
-  --secondary: #03dac6;
   --background: #121212;
-  --surface: #121212;
   --error: #cf6679;
-  --warning: #f39c12;
   --on-background: #ffffff;
   --on-background-grey: #c7c7c7;
-  --on-surface: #ffffff;
 }
 
 [data-theme="light"] {
+  --primary: #8051b9;
   --background: #dddddd;
-  --suface: #ffffff;
   --on-background: #333333;
   --on-background-grey: #6d6d6d;
-  --on-surface: #333333;
 }
 
 * {
@@ -43,6 +37,7 @@ body {
 .not-found-page {
   height: 100vh;
   display: flex;
+  padding: 20px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -51,11 +46,11 @@ body {
 .not-found-page a {
   text-decoration: none;
   padding-bottom: 6px;
-  border-bottom: 2px solid #ebe8e8;
+  border-bottom: 2px solid var(--primary);
 }
 
 .not-found-page a:hover {
-  color: #b5e4f2;
+  font-weight: 800;
 }
 
 header {
@@ -70,10 +65,41 @@ header h1 {
   flex: 1;
 }
 
-header .navigation ul li {
-  display: inline-block;
+.brand {
+  text-decoration: none;
+}
+
+header .navigation {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.toggle {
   font-size: 24px;
-  margin: 0 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--on-background);
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.marleft {
+  margin-left: 16px;
+}
+
+.logout {
+  margin-left: 28px;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation .active {
+  text-decoration: underline;
 }
 
 main {
@@ -81,6 +107,11 @@ main {
   padding: 32px 0;
   width: 90%;
   max-width: 1200px;
+}
+
+.username {
+  text-align: right;
+  margin-bottom: 16px;
 }
 
 .notes-list {
@@ -100,6 +131,7 @@ main {
   text-align: center;
   color: var(--on-background-grey);
 }
+
 .note-item {
   padding: 16px;
   border-radius: 8px;
@@ -230,6 +262,15 @@ main {
   color: var(--on-background-grey);
 }
 
+.float-toggle {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  right: 32px;
+  top: 32px;
+}
+
 @media screen and (min-width: 650px) {
   .notes-list {
     grid-template-columns: repeat(2, 1fr);
@@ -249,5 +290,20 @@ main {
 @media screen and (min-width: 1200px) {
   .notes-list {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  nav.navigation {
+    margin-left: 0;
+  }
+
+  .not-found-page {
+    flex-direction: column;
   }
 }
